@@ -7,6 +7,8 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="sundbox_main" />
+    <orderEntry type="library" name="Gradle: org.testng:testng:7.0.0-beta3" level="project" />
+    <orderEntry type="library" name="Gradle: com.beust:jcommander:1.72" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="sundbox_main" />
 </module>
