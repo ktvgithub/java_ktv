@@ -37,8 +37,7 @@ public class GroupCreationTests {
     returnToGroupPage();
   }
 
-  private void returnToGroupPage() {
-    wd.findElement(By.linkText("group page")).click();
+  private void returnToGroupPage() { wd.findElement(By.linkText("group page")).click();
   }
 
   private void submitGroupCreation() {
