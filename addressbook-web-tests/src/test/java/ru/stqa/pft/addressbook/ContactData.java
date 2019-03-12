@@ -1,6 +1,6 @@
 package ru.stqa.pft.addressbook;
 
-public class GroupDataContact {
+public class ContactData {
   private final String firstname;
   private final String middlename;
   private final String lastname;
@@ -12,7 +12,7 @@ public class GroupDataContact {
   private final String mobile;
   private final String email;
 
-  public GroupDataContact(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String email) {
+  public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String address, String home, String mobile, String email) {
     this.firstname = firstname;
     this.middlename = middlename;
     this.lastname = lastname;
