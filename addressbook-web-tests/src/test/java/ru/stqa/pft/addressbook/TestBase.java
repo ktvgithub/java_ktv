@@ -12,6 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class TestBase {
   protected WebDriver wd;
+  protected boolean acceptNextAlert = true;
 
   @BeforeMethod(alwaysRun = true)
   public void setUp() throws Exception {
@@ -29,7 +30,7 @@ public class TestBase {
     wd.findElement(By.name("user")).sendKeys(username);
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Password:'])[1]/following::input[2]")).click();
+    wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
   protected void returnToGroupPage() {
@@ -90,4 +91,18 @@ public class TestBase {
   protected void selectGroup() {
     wd.findElement(By.name("selected[]")).click();
   }
+
+
+  protected void deleteSelectedContact() {
+    wd.switchTo().alert().accept();
+  }
+
+  protected void selectContact() {
+    wd.findElement(By.name("selected[]")).click();
+    wd.findElement(By.xpath("//input[@value='Delete']")).click();
+
+  }
+
+  protected void returnToContactPage() {
+    wd.findElement(By.linkText("home page")).click();
 }
