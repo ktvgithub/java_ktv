@@ -9,8 +9,11 @@ public class ContactModificationTests extends TestBase{
   public void testContactModification() {
     app.getNavigationHelper().returnToContactPage();
     app.getContactHelper().initContactModification();
-    app.getContactHelper().fillContactForm(new ContactData("Allen", "William", "Jones", "lion", "Hairdresser", "Harmony", "7, Oxford Street London W 15 NP Great Britain", "0 726 234 567 89", "+447800767690", "AWJ_harmony@mail.ru"));
+    app.getContactHelper().fillContactForm(new ContactData("Allen", "William",
+            "Jones", "lion", "Hairdresser", "Harmony", "7," +
+            " Oxford Street London W 15 NP Great Britain", "0 726 234 567 89",
+            "+447800767690", "AWJ_harmony@mail.ru", null), false);
     app.getContactHelper().submitContactModification();
-   // app.getNavigationHelper().returnToContactPage();
+    app.getNavigationHelper().returnToContactPage();
   }
 }
