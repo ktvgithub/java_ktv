@@ -10,6 +10,6 @@ public class GroupCreationTests extends TestBase {
     app.getNavigationHelper().gotoGroupPage();
     app.getGroupHelper().createGroup(new GroupData("test1", null, null));
 
-    }
+  }
 
 }

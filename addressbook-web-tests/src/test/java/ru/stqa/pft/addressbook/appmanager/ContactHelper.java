@@ -40,9 +40,10 @@ public class ContactHelper extends HelperBase {
     type(By.name("mobile"), contactData.getMobile());
     type(By.name("email"), contactData.getEmail());
 
-    if (creation)
-    {new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-    } else {Assert.assertFalse(isElementPresent(By.name("new_group")));
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
 
   }
@@ -63,6 +64,13 @@ public class ContactHelper extends HelperBase {
 
     click(By.xpath("(//img[@alt='Edit'])[2]"));
   }
+
+  public void createContact(ContactData contact) {
+    inputContactCreation();
+    fillContactForm(contact, true);
+    submitContactCreation();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("(//img[@alt='Edit'])[2]")); }
 }
-
-
