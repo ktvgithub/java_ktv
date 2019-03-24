@@ -71,7 +71,8 @@ public class ContactHelper extends HelperBase {
   }
 
   public boolean isThereAContact() {
-    return isElementPresent(By.xpath("(//img[@alt='Edit'])[2]"));
+    //return isElementPresent(By.xpath("(//img[@alt='Edit'])[2]"));
+    return isElementPresent(By.xpath("//img[@alt='Details']"));
   }
 
   public int getContactCount() {
