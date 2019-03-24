@@ -17,7 +17,7 @@ public class ContactDelitionTests extends TestBase {
               "7, Oxford Street London W 15 NP Great Britain", "0 726 234 567 89",
               "+447800767690", "AWJ_harmony@mail.ru", "test1"));
     }
-    app.getContactHelper().selectContact();
+    app.getContactHelper().selectContact(before - 1);
     app.getContactHelper().deleteSelectedContact();
     app.getNavigationHelper().returnToContactPage();
     int after = app.getContactHelper().getContactCount();
