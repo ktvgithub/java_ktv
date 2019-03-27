@@ -2,11 +2,17 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
+
+  private String firstname;
+  private String lastname;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -57,12 +63,12 @@ public class ContactHelper extends HelperBase {
   public void submitContactModification() {
 
 
-    click(By.xpath("(//input[@name='update'])[2]"));
+    click(By.xpath("(//input[@name='update'])[1]"));
   }
 
   public void initContactModification() {
 
-    click(By.xpath("(//img[@alt='Edit'])[2]"));
+    click(By.xpath("(//img[@alt='Edit'])[1]"));
   }
 
   public void createContact(ContactData contact) {
@@ -72,11 +78,41 @@ public class ContactHelper extends HelperBase {
   }
 
   public boolean isThereAContact() {
-    //return isElementPresent(By.xpath("(//img[@alt='Edit'])[2]"));
     return isElementPresent(By.xpath("//img[@alt='Details']"));
   }
 
   public int getContactCount() {
     return wd.findElements(By.xpath("//img[@alt='Details']")).size();
   }
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    WebElement table_element = wd.findElement(By.cssSelector(("table.sortcompletecallback-applyZebra")));
+    List<WebElement> rows = table_element.findElements(By.tagName("tr"));
+    int n = 0;
+    for (WebElement row : rows) {
+      if (n > 0) {
+        int i = 0;
+        List<WebElement> cells = row.findElements(By.tagName("td"));
+        for (WebElement cell : cells) {
+          if (i == 1) lastname = cells.get(1).getText();
+          if (i == 2) firstname = cells.get(2).getText();
+          i++;
+        }
+        ContactData contact = new ContactData(lastname, null, firstname,
+                null, null, null, null, null,
+                null, null, null);
+        contacts.add(contact);
+      }
+      n++;
+    }
+    return contacts;
+  }
+
 }
+
+
+
+
+
+
