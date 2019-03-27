@@ -20,6 +20,9 @@ public class ContactCreationTests extends TestBase {
     app.getNavigationHelper().returnToContactPage();
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(),before.size() + 1);
+
+    after.remove(after.size() - 1);
+    Assert.assertEquals(before, after);
   }
 
 }
