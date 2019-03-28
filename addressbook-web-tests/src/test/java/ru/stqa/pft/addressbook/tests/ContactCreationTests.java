@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import java.util.HashSet;
 import java.util.List;
 
 public class ContactCreationTests extends TestBase {
@@ -22,7 +23,7 @@ public class ContactCreationTests extends TestBase {
     Assert.assertEquals(after.size(),before.size() + 1);
 
     after.remove(after.size() - 1);
-    Assert.assertEquals(before, after);
+    Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
   }
 
 }
