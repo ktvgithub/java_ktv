@@ -77,6 +77,12 @@ public class ContactHelper extends HelperBase {
     submitContactCreation();
   }
 
+  public void modifyContact(ContactData contact) {
+    initContactModification();
+    fillContactForm(contact, false);
+    submitContactModification();
+   }
+
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//img[@alt='Details']"));
   }
