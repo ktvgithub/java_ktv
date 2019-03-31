@@ -71,17 +71,22 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("(//img[@alt='Edit'])[1]"));
   }
 
-  public void createContact(ContactData contact) {
+  public void create(ContactData contact) {
     inputContactCreation();
     fillContactForm(contact, true);
     submitContactCreation();
   }
 
-  public void modifyContact(ContactData contact) {
+  public void modify(ContactData contact) {
     initContactModification();
     fillContactForm(contact, false);
     submitContactModification();
    }
+
+  public void delete(int index) {
+    selectContact(index);
+    deleteSelectedContact();
+  }
 
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//img[@alt='Details']"));
@@ -91,7 +96,7 @@ public class ContactHelper extends HelperBase {
     return wd.findElements(By.xpath("//img[@alt='Details']")).size();
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     WebElement table_element = wd.findElement(By.cssSelector(("table.sortcompletecallback-applyZebra")));
     List<WebElement> rows = table_element.findElements(By.tagName("tr"));
