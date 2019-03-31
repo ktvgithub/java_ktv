@@ -92,8 +92,8 @@ public class ContactHelper extends HelperBase {
     int n = 0;
     for (WebElement row : rows) {
       if (n > 0) {
-        String id = row.findElement(By.tagName("td")).
-                  findElement(By.tagName("input")).getAttribute("value");
+        int id = Integer.parseInt(row.findElement(By.tagName("td")).
+                  findElement(By.tagName("input")).getAttribute("value"));
         int i = 0;
         List<WebElement> cells = row.findElements(By.tagName("td"));
         for (WebElement cell : cells) {

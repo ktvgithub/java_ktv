@@ -13,17 +13,26 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation() throws Exception {
     app.getNavigationHelper().returnToContactPage();
     List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().createContact(new ContactData("Allen", "William",
+    ContactData contact = new ContactData("Allen", "William",
             "Jones", "lion", "Hairdresser", "Harmony",
             "7, Oxford Street London W 15 NP Great Britain", "0 726 234 567 89",
-            "+447800767690", "AWJ_harmony@mail.ru", "test1"));
+            "+447800767690", "AWJ_harmony@mail.ru", "test1");
+    app.getContactHelper().createContact(contact);
 
     app.getNavigationHelper().returnToContactPage();
     List<ContactData> after = app.getContactHelper().getContactList();
     Assert.assertEquals(after.size(),before.size() + 1);
 
-    after.remove(after.size() - 1);
-    Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
+    int max = 0;
+    for (ContactData g : after) {
+      if (g.getId() > max) {
+        max = g.getId();
+      }
+    }
+    contact.setId(max);
+    before.add(contact);
+
+   Assert.assertEquals(new HashSet<Object>(before),new HashSet<Object>(after));
   }
 
 }
