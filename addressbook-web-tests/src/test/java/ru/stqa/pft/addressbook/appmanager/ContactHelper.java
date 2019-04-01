@@ -36,11 +36,11 @@ public class ContactHelper extends HelperBase {
 
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
-    type(By.name("middlename"), contactData.getMiddlename());
+   // type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
-    type(By.name("nickname"), contactData.getNickname());
-    type(By.name("title"), contactData.getTitle());
-    type(By.name("company"), contactData.getCompany());
+   //  type(By.name("nickname"), contactData.getNickname());
+   // type(By.name("title"), contactData.getTitle());
+   // type(By.name("company"), contactData.getCompany());
     type(By.name("address"), contactData.getAddress());
     type(By.name("home"), contactData.getHome());
     type(By.name("mobile"), contactData.getMobile());
@@ -112,10 +112,7 @@ public class ContactHelper extends HelperBase {
           if (i == 2) firstname = cells.get(2).getText();
           i++;
         }
-          ContactData contact = new ContactData(id, firstname, null, lastname,
-                null, null, null, null, null,
-                null, null, null);
-        contacts.add(contact);
+          contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
       }
       n++;
     }
