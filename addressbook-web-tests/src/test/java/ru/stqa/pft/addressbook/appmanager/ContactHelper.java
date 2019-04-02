@@ -6,13 +6,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
-  private String firstname;
-  private String lastname;
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -23,9 +22,10 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContact(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
-    //click(By.name("selected[]"));
-    click(By.xpath("//input[@value='Delete']"));
+  //  wd.findElements(By.name("selected[]")).get(index).click();
+  click(By.name("selected[]"));
+
+click(By.xpath("//input[@value='Delete']"));
 
   }
 
@@ -61,15 +61,15 @@ public class ContactHelper extends HelperBase {
   }
 
   public void submitContactModification() {
-
-
-    click(By.xpath("(//input[@name='update'])[1]"));
+  click(By.xpath("(//input[@name='update'])[1]"));
+  //  click(By.name("update"));
   }
 
   public void initContactModification() {
+  click(By.xpath("(//img[@alt='Edit'])[1]"));
+ //   click(By.name("edit"));
+      }
 
-    click(By.xpath("(//img[@alt='Edit'])[1]"));
-  }
 
   public void create(ContactData contact) {
     inputContactCreation();
@@ -77,7 +77,9 @@ public class ContactHelper extends HelperBase {
     submitContactCreation();
   }
 
-  public void modify(ContactData contact) {
+//  public void modify(int index, ContactData contact) {
+public void modify(ContactData contact) {
+    //selectContact(index);
     initContactModification();
     fillContactForm(contact, false);
     submitContactModification();
@@ -97,27 +99,49 @@ public class ContactHelper extends HelperBase {
   }
 
   public List<ContactData> list() {
+    System.out.println("зашли в лист   " );
     List<ContactData> contacts = new ArrayList<ContactData>();
-    WebElement table_element = wd.findElement(By.cssSelector(("table.sortcompletecallback-applyZebra")));
-    List<WebElement> rows = table_element.findElements(By.tagName("tr"));
-    int n = 0;
+    List<WebElement> rows = wd.findElements(By.name("entry"));
+    System.out.println("row  " + rows.size());
     for (WebElement row : rows) {
-      if (n > 0) {
-        int id = Integer.parseInt(row.findElement(By.tagName("td")).
-                  findElement(By.tagName("input")).getAttribute("value"));
-        int i = 0;
-        List<WebElement> cells = row.findElements(By.tagName("td"));
-        for (WebElement cell : cells) {
-          if (i == 1) lastname = cells.get(1).getText();
-          if (i == 2) firstname = cells.get(2).getText();
-          i++;
-        }
-          contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
-      }
-      n++;
+      List<WebElement> elements = row.findElements(By.tagName("td"));
+       int id = Integer.parseInt(row.findElement(By.tagName("td")).
+              findElement(By.tagName("input")).getAttribute("value"));
+        String lastname = elements.get(1).getText();
+        String firstname = elements.get(2).getText();
+        System.out.println("lastname  " + lastname);
+        System.out.println("firstname  " + firstname);
+        System.out.println("ld  " + id);
+        contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
+
     }
     return contacts;
   }
+
+
+
+  // public List<ContactData> list() {
+  //  List<ContactData> contacts = new ArrayList<ContactData>();
+  //  WebElement table_element = wd.findElement(By.cssSelector(("table.sortcompletecallback-applyZebra")));
+  //  List<WebElement> rows = table_element.findElements(By.tagName("tr"));
+  //  int n = 0;
+  //  for (WebElement row : rows) {
+  //    if (n > 0) {
+  //      int id = Integer.parseInt(row.findElement(By.tagName("td")).
+  //             findElement(By.tagName("input")).getAttribute("value"));
+  //    int i = 0;
+  //   List<WebElement> cells = row.findElements(By.tagName("td"));
+  //  for (WebElement cell : cells) {
+  //   if (i == 1) lastname = cells.get(1).getText();
+  //  if (i == 2) firstname = cells.get(2).getText();
+  // i++;
+  //   }
+  //    contacts.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname));
+  // }
+  //  n++;
+  // }
+  // return contacts;
+  // }
 
 }
 
