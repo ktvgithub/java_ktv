@@ -61,9 +61,9 @@ public class GroupHelper extends HelperBase {
 
   }
 
-    public boolean isAlertPresent() {
+  public boolean isAlertPresent() {
     return super.isAlertPresent();
-    //  return isElementPresent(By.name("selected[]"));
+
   }
 
   public void modify(int index, GroupData group) {
@@ -75,9 +75,9 @@ public class GroupHelper extends HelperBase {
   }
 
   public void delete(int index) {
-   selectGroup(index);
-   deleteSelectedGroup();
-   returnToGroupPage();
+    selectGroup(index);
+    deleteSelectedGroup();
+    returnToGroupPage();
   }
 
   public boolean isThereAGroup() {
@@ -92,9 +92,9 @@ public class GroupHelper extends HelperBase {
     List<GroupData> groups = new ArrayList<GroupData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
     for (WebElement element : elements) {
-      String name  = element.getText();
+      String name = element.getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      groups.add( new GroupData().withId(id).withName(name));
+      groups.add(new GroupData().withId(id).withName(name));
     }
     return groups;
   }

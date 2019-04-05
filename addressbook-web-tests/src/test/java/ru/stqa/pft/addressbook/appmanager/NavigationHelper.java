@@ -10,17 +10,21 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void groupPage() {
-   if (isElementPresent(By.tagName("h1")) && wd.findElement(By.tagName("h1")).getText().equals("Group")
-           &&isElementPresent(By.name("new")))
-    { return;
+    if (isElementPresent(By.tagName("h1")) && wd.findElement(By.tagName("h1")).getText().equals("Group")
+            && isElementPresent(By.name("new"))) {
+      return;
     } else {
-    click(By.linkText("groups")); }
+      click(By.linkText("groups"));
+    }
   }
 
   public void contactPage() {
-    if (isElementPresent(By.id("maintable")))
-    {return;
-    } else {click(By.linkText("home"));}
-   }
+    System.out.println("зашли в GoTo ContactPage   ");
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    } else {
+      click(By.linkText("home"));
+    }
+  }
 
 }

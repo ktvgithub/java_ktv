@@ -4,7 +4,8 @@ import java.util.Objects;
 
 public class ContactData {
 
-  private int id = Integer.MAX_VALUE;;
+  private int id = Integer.MAX_VALUE;
+  ;
   private String firstname;
   private String lastname;
   private String address;
@@ -26,20 +27,31 @@ public class ContactData {
     return lastname;
   }
 
-  public String getAddress() {    return address;  }
+  public String getAddress() {
+    return address;
+  }
 
-  public String getHome() {    return home;  }
+  public String getHome() {
+    return home;
+  }
 
-  public String getMobile() {    return mobile;  }
+  public String getMobile() {
+    return mobile;
+  }
 
-  public String getEmail() {    return email;  }
+  public String getEmail() {
+    return email;
+  }
 
-  public String getGroup() {    return group;  }
+  public String getGroup() {
+    return group;
+  }
 
   public ContactData withId(int id) {
     this.id = id;
     return this;
   }
+
   public ContactData withFirstname(String firstname) {
     this.firstname = firstname;
     return this;
@@ -98,7 +110,6 @@ public class ContactData {
             ", lastname='" + lastname + '\'' +
             '}';
   }
-
 
 
 }

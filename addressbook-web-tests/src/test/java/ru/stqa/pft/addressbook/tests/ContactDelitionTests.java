@@ -11,10 +11,9 @@ import java.util.List;
 public class ContactDelitionTests extends TestBase {
 
   @BeforeMethod
-  public void ensurePreconditions()  {
+  public void ensurePreconditions() {
     app.goTo().contactPage();
-   // if (app.contact().isThereAContact()) {
-    if (app.group().list().size() == 1) {
+    if (app.contact().list().size() == 0) {
       app.contact().create(new ContactData().withFirstname("Allen").withLastname("Jones").withGroup("test1"));
     }
   }
