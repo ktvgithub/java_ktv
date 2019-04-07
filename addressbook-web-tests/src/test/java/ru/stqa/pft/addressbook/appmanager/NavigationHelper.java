@@ -19,8 +19,7 @@ public class NavigationHelper extends HelperBase {
   }
 
   public void contactPage() {
-    System.out.println("зашли в GoTo ContactPage   ");
-    if (isElementPresent(By.id("maintable"))) {
+   if (isElementPresent(By.id("maintable"))) {
       return;
     } else {
       click(By.linkText("home"));
