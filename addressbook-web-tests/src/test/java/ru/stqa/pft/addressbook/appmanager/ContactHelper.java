@@ -39,7 +39,10 @@ public class ContactHelper extends HelperBase {
     type(By.name("address"), contactData.getAddress());
     type(By.name("home"), contactData.getHomePhone());
     type(By.name("mobile"), contactData.getMobilePhone());
+    type(By.name("work"), contactData.getWorkPhone());
     type(By.name("email"), contactData.getEmail());
+    type(By.name("email2"), contactData.getEmail2());
+    type(By.name("email3"), contactData.getEmail3());
 
     if (creation) {
       new
@@ -110,11 +113,13 @@ public class ContactHelper extends HelperBase {
       String lastname = elements.get(1).getText();
       String firstname = elements.get(2).getText();
       String allPhones = elements.get(5).getText();
+      String address = elements.get(3).getText();
+      String allEmail = elements.get(4).getText();
 
       ContactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).
-              withAllPhones(allPhones));
+              withAllPhones(allPhones).withAddress(address).withAllEmail(allEmail));
 
-    }
+  }
     return new Contacts(ContactCache);
   }
 
@@ -125,8 +130,14 @@ public class ContactHelper extends HelperBase {
     String home = wd.findElement(By.name("home")).getAttribute("value");
     String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
     String work = wd.findElement(By.name("work")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getAttribute("value");
+    String email = wd.findElement(By.name("email")).getAttribute("value");
+    String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    System.out.println(address);
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).
-            withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work);
-  }
+            withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work)
+            .withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
+    }
 }
 
