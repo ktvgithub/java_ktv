@@ -14,3 +14,28 @@ dependencies {
 
 
 }
+
+task testGroups(type: Test) {
+    useTestNG {
+        suites 'src/test/recources/testng-groups.xml'
+    }
+    if (project.hasProperty('browser')){
+        systemProperty 'browser', "${browser}"
+    }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+}
+
+task testContacts(type: Test) {
+    useTestNG {
+        suites 'src/test/recources/testng-contacts.xml'
+    }
+    if (project.hasProperty('browser')){
+   systemProperty 'browser', "${browser}"
+   }
+    if (project.hasProperty('target')){
+        systemProperty 'target', "${target}"
+    }
+
+}
