@@ -46,7 +46,6 @@ public class ContactHelper extends HelperBase {
  // attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
-      System.out.println("зашли в fill group "+ contactData.getGroup() );
       new
        Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
