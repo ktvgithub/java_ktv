@@ -23,8 +23,14 @@ public class ContactData {
   @Column(name = "firstname")
   private String firstname;
   @Expose
+  @Column(name = "middlename")
+  private String middlename;
+  @Expose
   @Column(name = "lastname")
   private String lastname;
+  @Expose
+  @Column(name = "nickname")
+  private String nickname;
   @Expose
   @Column(name = "address")
   @Type(type = "text")
@@ -90,9 +96,13 @@ public class ContactData {
     return firstname;
   }
 
+  public String getMiddlename() {return middlename;}
+
   public String getLastname() {
     return lastname;
   }
+
+  public String getNickname() {return nickname;}
 
   public String getAddress() {
     return address;
@@ -155,8 +165,18 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withMiddlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
   public ContactData withLastname(String lastname) {
     this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withNickname(String nickname) {
+    this.nickname = nickname;
     return this;
   }
 

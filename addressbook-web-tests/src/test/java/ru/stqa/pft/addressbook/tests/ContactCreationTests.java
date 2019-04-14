@@ -58,11 +58,11 @@ public class ContactCreationTests extends TestBase {
   @Test(dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) throws Exception {
     app.goTo().contactPage();
-    Contacts before = app.contact().all();
+    Contacts before = app.db().contacts();
     app.contact().create(contact);
     app.goTo().contactPage();
     assertThat(app.contact().count(), equalTo(before.size() + 1));
-    Contacts after = app.contact().all();
+    Contacts after = app.db().contacts();
     assertThat(after, equalTo(before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
 
   }
@@ -80,7 +80,12 @@ public class ContactCreationTests extends TestBase {
   public void testBadContactCreation() throws Exception {
     app.goTo().contactPage();
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData().withFirstname("Allen'").withLastname("Jones").withGroup("test1");
+    ContactData contact = new ContactData().withFirstname("Allen").withMiddlename("forModeMiddleName")
+            .withLastname("Jones").withNickname("Nick").withAddress("Address").withHomePhone("25 178 89")
+            .withMobilePhone("+7(912) 455 22 00").withWorkPhone("254 55 33").withEmail("111@mail.ru")
+            .withEmail2("222@mail.ru").withEmail3("@mail.ru")
+            .withPhoto(new File("src/test/resources/camera.png")).withGroup("test1");
+
     app.contact().create(contact);
     app.goTo().contactPage();
     assertThat(app.contact().count(), equalTo(before.size()));
