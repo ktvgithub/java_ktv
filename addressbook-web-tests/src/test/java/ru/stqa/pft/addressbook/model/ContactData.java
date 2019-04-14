@@ -7,6 +7,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.io.File;
+import java.sql.Timestamp;
 import java.util.Objects;
 
 @XStreamAlias("contacts")
@@ -55,6 +56,9 @@ public class ContactData {
   @Column(name = "email3")
   @Type(type = "text")
   private String email3;
+  @Expose
+  @Column(name = "deprecated")
+  private Timestamp deprecated;
 
   @Override
   public String toString() {
