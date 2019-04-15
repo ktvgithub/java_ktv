@@ -35,9 +35,7 @@ public class ContactHelper extends HelperBase {
 
   public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
-    type(By.name("nickname"), contactData.getNickname());
     type(By.name("lastname"), contactData.getLastname());
-    type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("address"), contactData.getAddress());
     type(By.name("home"), contactData.getHomePhone());
     type(By.name("mobile"), contactData.getMobilePhone());
@@ -45,7 +43,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"), contactData.getEmail());
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
-    //attach(By.name("photo"), contactData.getPhoto());
+ // attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
       new
@@ -137,6 +135,7 @@ public class ContactHelper extends HelperBase {
     String email = wd.findElement(By.name("email")).getAttribute("value");
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    System.out.println(address);
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).
             withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work)
             .withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);

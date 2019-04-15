@@ -80,7 +80,7 @@ public class ContactCreationTests extends TestBase {
   public void testBadContactCreation() throws Exception {
     app.goTo().contactPage();
     Contacts before = app.contact().all();
-    ContactData contact = new ContactData().withFirstname("Allen").withMiddlename("Middlename")
+    ContactData contact = new ContactData().withFirstname("Allen").withMiddlename("forModeMiddleName")
             .withLastname("Jones").withNickname("Nick").withAddress("Address").withHomePhone("25 178 89")
             .withMobilePhone("+7(912) 455 22 00").withWorkPhone("254 55 33").withEmail("111@mail.ru")
             .withEmail2("222@mail.ru").withEmail3("@mail.ru")
