@@ -59,6 +59,7 @@ public class ContactCreationTests extends TestBase {
   public void testContactCreation(ContactData contact) throws Exception {
     app.goTo().contactPage();
     Contacts before = app.db().contacts();
+    app.goTo().contactPage();
     app.contact().create(contact);
     app.goTo().contactPage();
     assertThat(app.contact().count(), equalTo(before.size() + 1));

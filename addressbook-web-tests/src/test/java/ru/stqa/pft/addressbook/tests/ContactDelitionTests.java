@@ -17,19 +17,21 @@ public class ContactDelitionTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().contactPage();
     if (app.db().contacts().size() == 0) {
-      app.contact().create(new ContactData().withFirstname("Allen").withMiddlename("forModeMiddleName")
+      app.contact().create(new ContactData().withFirstname("Allen").withMiddlename("MiddleName")
               .withLastname("Jones").withNickname("Nick").withAddress("Address").withHomePhone("25 178 89")
               .withMobilePhone("+7(912) 455 22 00").withWorkPhone("254 55 33").withEmail("111@mail.ru")
               .withEmail2("222@mail.ru").withEmail3("@mail.ru")
-              .withPhoto(new File("src/test/resources/camera.png")).withGroup("test1"));
+              .withPhoto(new File("src/test/resources/camera.png")).withGroup("test 1"));
 
     }
   }
 
   @Test
   public void testContactDelition() throws Exception {
+    app.goTo().contactPage();
     Contacts before = app.db().contacts();
     ContactData deletedContact = before.iterator().next();
+    app.goTo().contactPage();
     app.contact().delete(deletedContact);
     app.goTo().contactPage();
     assertThat(app.contact().count(), equalTo(before.size() - 1));
