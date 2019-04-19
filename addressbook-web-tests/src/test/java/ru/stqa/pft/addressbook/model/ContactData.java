@@ -8,7 +8,9 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.io.File;
 import java.sql.Timestamp;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @XStreamAlias("contacts")
 @Entity
@@ -65,28 +67,25 @@ public class ContactData {
   @Expose
   @Column(name = "deprecated")
   private Timestamp deprecated;
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id=" + id +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
-  }
-
   @Expose
   @Transient
   private String allEmail;
-  @Expose
-  @Transient
-  private String group;
+//  @Expose
+//  @Transient
+//  private String group;
   @Expose
   @Column(name = "photo")
   @Type(type = "text")
   private String photo;
 
+  @ManyToMany
+  @JoinTable(name = "address_in_groups", joinColumns = @JoinColumn(name = "id")
+          ,inverseJoinColumns = @JoinColumn(name = "group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
 
+  public Groups getGroups() {
+    return new Groups(groups);
+  }
 
   public int getId() {
     return id;
@@ -134,26 +133,11 @@ public class ContactData {
 
   public String getAllEmail() {return allEmail; }
 
+//  public String getGroup() {return group;}
+
+
   public File getPhoto() {return new File(String.valueOf(photo));}
 
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
-    ContactData that = (ContactData) o;
-    return id == that.id &&
-            Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname);
-  }
-
-  @Override
-  public int hashCode() {
-    return Objects.hash(id, firstname, lastname);
-  }
-
-  public String getGroup() {
-    return group;
-  }
 
   public ContactData withId(int id) {
     this.id = id;
@@ -224,14 +208,43 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
+ // public ContactData withGroup(String group) {
+ //   this.group = group;
+ //   return this;
+ // }
 
   public ContactData withPhoto(File photo) {
     this.photo = photo.getPath();
     return this;
   }
+
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    ContactData that = (ContactData) o;
+    return id == that.id &&
+            Objects.equals(firstname, that.firstname) &&
+            Objects.equals(lastname, that.lastname);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id, firstname, lastname);
+  }
+
+
+
+
 
 }

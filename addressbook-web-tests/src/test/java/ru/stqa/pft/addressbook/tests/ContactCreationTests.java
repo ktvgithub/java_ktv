@@ -86,7 +86,8 @@ public class ContactCreationTests extends TestBase {
             .withLastname("Jones").withNickname("Nick").withAddress("Address").withHomePhone("25 178 89")
             .withMobilePhone("+7(912) 455 22 00").withWorkPhone("254 55 33").withEmail("111@mail.ru")
             .withEmail2("222@mail.ru").withEmail3("@mail.ru")
-            .withPhoto(new File("src/test/resources/camera.png")).withGroup("test1");
+            .withPhoto(new File("src/test/resources/camera.png"));
+    //.withGroup("test1");
 
     app.contact().create(contact);
     app.goTo().contactPage();

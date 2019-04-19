@@ -21,7 +21,8 @@ public class ContactModificationTests extends TestBase {
               .withLastname("Jones").withNickname("Nick").withAddress("Address").withHomePhone("25 178 89")
               .withMobilePhone("+7(912) 455 22 00").withWorkPhone("254 55 33").withEmail("111@mail.ru")
               .withEmail2("222@mail.ru").withEmail3("@mail.ru")
-              .withPhoto(new File("src/test/resources/camera.png")).withGroup("test 1"));
+              .withPhoto(new File("src/test/resources/camera.png")));
+      //.withGroup("test 1"));
        }
   }
 
@@ -35,7 +36,8 @@ public class ContactModificationTests extends TestBase {
             .withAddress("Address").withHomePhone("25 178 89").withMobilePhone("+7(912) 455 22 00")
             .withWorkPhone("254 55 33").withEmail("111@mail.ru")
             .withEmail2("222@mail.ru").withEmail3("@mail.ru")
-            .withPhoto(new File("src/test/resources/camera.png")).withGroup("test1");
+            .withPhoto(new File("src/test/resources/camera.png"));
+    //.withGroup("test1");
     app.goTo().contactPage();
     app.contact().modify(contact);
     app.goTo().contactPage();
