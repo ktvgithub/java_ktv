@@ -16,9 +16,11 @@ public class ContactPhoneTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().contactPage();
     if (app.contact().all().size() == 0) {
-      app.contact().create(new ContactData().withFirstname("Allen").withLastname("Jones").withGroup("test1")
+      app.contact().create(new ContactData().withFirstname("Allen").withLastname("Jones")
               .withHomePhone("22-45-55").withMobilePhone("+7(855)95612").withWorkPhone("122 35 55")
               .withAddress("455555, London").withEmail("111@mail").withEmail2("222@mail").withEmail3("333@mail"));
+
+      //.withGroup("test1")
     }
   }
 
