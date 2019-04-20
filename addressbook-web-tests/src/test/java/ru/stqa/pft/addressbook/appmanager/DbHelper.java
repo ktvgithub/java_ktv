@@ -29,7 +29,6 @@ public class DbHelper {
       Session session = sessionFactory.openSession();
       session.beginTransaction();
      List<GroupData> result = session.createQuery( "from GroupData" ).list();
-      session.getTransaction().commit();
       session.close();
       return new Groups(result);
 
@@ -40,7 +39,7 @@ public class DbHelper {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<ContactData> result = session.createQuery( "from ContactData where deprecated is null" ).list();
-    session.getTransaction().commit();
+   // session.getTransaction().commit();
     session.close();
     return new Contacts(result);
   }
