@@ -49,7 +49,7 @@ public class ApplicationManager<string> {
         }
       }
     }
-    wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
     groupHelper = new GroupHelper(wd);
     contactHelper = new ContactHelper(wd);
