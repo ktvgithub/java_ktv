@@ -24,7 +24,7 @@ public class ContactHelper extends HelperBase {
 
   }
 
-   private void selectContactById(int id) {
+  private void selectContactById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
 
@@ -44,7 +44,7 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"), contactData.getEmail());
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
-   // attach(By.name("photo"), contactData.getPhoto());
+    // attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
       new
@@ -104,7 +104,7 @@ public class ContactHelper extends HelperBase {
 
   public Contacts all() {
     if (ContactCache != null) {
-      return new Contacts( ContactCache);
+      return new Contacts(ContactCache);
     }
     ContactCache = new Contacts();
     List<WebElement> rows = wd.findElements(By.name("entry"));
@@ -121,7 +121,7 @@ public class ContactHelper extends HelperBase {
       ContactCache.add(new ContactData().withId(id).withFirstname(firstname).withLastname(lastname).
               withAllPhones(allPhones).withAddress(address).withAllEmail(allEmail));
 
-  }
+    }
     return new Contacts(ContactCache);
   }
 
@@ -140,14 +140,14 @@ public class ContactHelper extends HelperBase {
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname).
             withHomePhone(home).withMobilePhone(mobile).withWorkPhone(work)
             .withAddress(address).withEmail(email).withEmail2(email2).withEmail3(email3);
-    }
+  }
 
- public void deleteContactFromGroup(ContactData contact) {
-      selectContactById(contact.getId());
-      click(By.name("remove"));
-    }
+  public void deleteContactFromGroup(ContactData contact) {
+    selectContactById(contact.getId());
+    click(By.name("remove"));
+  }
 
- public void addToGroup(ContactData contact,GroupData group) {
+  public void addToGroup(ContactData contact, GroupData group) {
     selectContactById(contact.getId());
     new Select(wd.findElement(By.name("to_group"))).selectByValue(Integer.toString(group.getId()));
     click(By.name("add"));
@@ -155,6 +155,6 @@ public class ContactHelper extends HelperBase {
   }
 
 
-  }
+}
 
 

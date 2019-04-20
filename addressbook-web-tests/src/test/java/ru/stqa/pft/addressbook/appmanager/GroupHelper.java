@@ -85,6 +85,9 @@ public class GroupHelper extends HelperBase {
   public boolean isThereAGroup() {
     return isElementPresent(By.name("selected[]"));
   }
+  public boolean isThereAContact() {
+    return isElementPresent(By.xpath("//img[@alt='Details']"));
+  }
 
   public int count() {
     return wd.findElements(By.name("selected[]")).size();
