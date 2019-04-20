@@ -44,13 +44,10 @@ public class DbHelper {
     return new Contacts(result);
   }
 
-  //public void refresh(ContactData contact) {
-
-    public void refresh(Object o) {
+  public void refresh(ContactData contact) {
       Session session = sessionFactory.openSession();
-      session.refresh(o);
+      session.refresh(contact);
       session.close();
     }
-//  }
 }
 
