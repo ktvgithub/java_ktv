@@ -75,6 +75,7 @@ public class ContactData {
 //  private String group;
   @Expose
   @Column(name = "photo")
+  @Transient
   @Type(type = "text")
   private String photo;
 
@@ -134,7 +135,6 @@ public class ContactData {
   public String getAllEmail() {return allEmail; }
 
 //  public String getGroup() {return group;}
-
 
   public File getPhoto() {return new File(String.valueOf(photo));}
 
