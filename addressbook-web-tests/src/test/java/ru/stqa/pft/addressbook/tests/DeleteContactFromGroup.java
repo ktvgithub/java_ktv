@@ -41,8 +41,8 @@ public class DeleteContactFromGroup extends TestBase {
     }
     app.contact().deleteContactFromGroup(contact);
     groups.removeAll(contact.getGroups());
-    assertThat(contact.getGroups(), CoreMatchers.not(CoreMatchers.hasItem(group)));
     app.db().refresh(contact);
-  }
+    assertThat(contact.getGroups(), CoreMatchers.not(CoreMatchers.hasItem(group)));
+   }
 }
 

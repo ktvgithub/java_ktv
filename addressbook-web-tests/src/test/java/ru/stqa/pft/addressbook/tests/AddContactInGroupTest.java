@@ -38,8 +38,8 @@ public class AddContactInGroupTest extends TestBase {
     groups.removeAll(contact.getGroups());
     app.goTo().clickLogo();
     app.contact().addToGroup(contact,group);
-    assertThat(contact.getGroups(), CoreMatchers.hasItem(group));
     app.db().refresh(contact);
+    assertThat(contact.getGroups(),CoreMatchers.hasItem(group));
      }
   }
 

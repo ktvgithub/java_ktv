@@ -9,7 +9,9 @@ dependencies {
     compile("org.seleniumhq.selenium:selenium-java:3.141.59")
     compile("org.hamcrest:java-hamcrest:2.0.0.0")
     compile('org.apache.httpcomponents:httpclient:4.5.8')
-   
+    compile("commons-net:commons-net:3.4")
+
+
 }
 
 test {

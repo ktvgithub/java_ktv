@@ -49,5 +49,7 @@ public class DbHelper {
       session.refresh(contact);
       session.close();
     }
+
+
 }
 
