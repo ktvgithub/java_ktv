@@ -17,6 +17,9 @@ public class TestBase {
   public void setUp() throws Exception {
     app.init();
     app.ftp().upload(new File("src/test/resources/config_inc.php"), "config_inc.php", "config_inc.php.bak");
+    // File currentDir = new File("");
+    //System.out.println(currentDir.getAbsolutePath());
+
 
   }
 
