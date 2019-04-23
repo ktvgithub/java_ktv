@@ -39,7 +39,7 @@ public class DbHelper {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<ContactData> result = session.createQuery( "from ContactData where deprecated is null" ).list();
-//    session.getTransaction().commit();
+    session.getTransaction().commit();
     session.close();
     return new Contacts(result);
   }
