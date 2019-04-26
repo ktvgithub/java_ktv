@@ -25,8 +25,10 @@ public class RegistrationTests extends TestBase {
     String password = "password";
     String email = String.format("user%s@localhost.localdomain",now);
     app.registration().start(user,email);
-    List<MailMessage> mailMessages = app.mail().witeForMail(2,10000);
+    List<MailMessage> mailMessages = app.mail().witeForMail(2,80000);
     String confirmationLink = findConfirmationLink(mailMessages, email);
+    System.out.println("confirmationLink " + confirmationLink);
+    System.out.println("password " + password);
     app.registration().finish(confirmationLink, password);
     assertTrue(app.newSession().login(user, password));
   }
