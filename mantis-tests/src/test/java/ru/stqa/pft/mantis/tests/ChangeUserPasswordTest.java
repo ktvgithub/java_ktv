@@ -8,6 +8,7 @@ import ru.stqa.pft.mantis.model.MailMessage;
 import ru.stqa.pft.mantis.model.UserData;
 import ru.stqa.pft.mantis.model.Users;
 
+import javax.mail.MessagingException;
 import java.io.IOException;
 import java.util.List;
 
@@ -20,14 +21,14 @@ import static org.testng.Assert.assertTrue;
     }
 
     @Test
-    public void changeUserPasswordTest() throws IOException {
+    public void changeUserPasswordTest() throws IOException, MessagingException {
       Users users = app.db().users();
       UserData selectedContact = users.iterator().next();
-      app.navigate().login();
-      app.navigate().openManageUsers();
-      app.navigate().choiceUser(selectedContact);
-      app.navigate().resetPassword();
-      List<MailMessage> mailMessages = app.mail().waitForMail(1, 15000);
+      app.goTo().login();
+      app.goTo().openManageUsers();
+      app.goTo().choiceUser(selectedContact);
+      app.goTo().resetPassword();
+      List<MailMessage> mailMessages = app.mail().witeForMail(1, 10000);
       String resetLink = findResetLink(mailMessages, selectedContact.getEmail());
       String newpassword = "newpassword";
       app.registration().finish(resetLink, newpassword);
@@ -50,4 +51,4 @@ import static org.testng.Assert.assertTrue;
 
 
 
-}
+

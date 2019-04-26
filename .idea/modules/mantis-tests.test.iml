@@ -48,6 +48,7 @@
     <orderEntry type="library" name="Gradle: org.codehaus.mojo:animal-sniffer-annotations:1.14" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: javax.persistence:javax.persistence-api:2.2" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: org.hibernate.orm:hibernate-core:6.0.0.Alpha2" level="project" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.google.code.gson:gson:2.8.5" level="project" />
   </component>
   <component name="TestModuleProperties" production-module="mantis-tests.main" />
 </module>

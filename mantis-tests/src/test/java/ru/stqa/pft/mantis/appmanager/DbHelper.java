@@ -16,16 +16,16 @@ public class DbHelper  {
 
   public DbHelper(ApplicationManager app) {
     this.app = app;
-    final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-            .configure()
-            .build();
+    final StandardServiceRegistry registry = new StandardServiceRegistryBuilder().configure().build();
     sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
   }
 
   public Users users() {
+    System.out.println("зашли в dbhelper");
     Session session = sessionFactory.openSession();
     session.beginTransaction();
-    List<UserData> result = session.createQuery("from UserData where access_level != '90'").list(); //no admin
+    List<UserData> result = session.createQuery("from UserData where access_level != '90'").list();
+    System.out.println("result " + result);
     session.getTransaction().commit();
     session.close();
     return new Users(result);

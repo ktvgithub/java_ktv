@@ -20,6 +20,8 @@ public class ApplicationManager<string> {
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
+  private NavigatorHelper navigatorHelper;
+  private DbHelper dbHelper;
 
 
   public ApplicationManager(String browser) {
@@ -39,6 +41,14 @@ public class ApplicationManager<string> {
       wd.quit();
     }
   }
+
+
+
+
+  public NavigatorHelper goTo() {
+    return navigatorHelper;
+  }
+  public DbHelper db() { return dbHelper; }
 
   public HttpSession newSession() {
     return new HttpSession(this);

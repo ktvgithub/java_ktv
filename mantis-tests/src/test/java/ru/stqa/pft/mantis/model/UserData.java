@@ -1,6 +1,7 @@
 package ru.stqa.pft.mantis.model;
 
 
+import com.google.gson.annotations.Expose;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
@@ -20,6 +21,7 @@ public class UserData {
   @Column
   private String username;
 
+  @Expose
   @Column
   private String email;
 
