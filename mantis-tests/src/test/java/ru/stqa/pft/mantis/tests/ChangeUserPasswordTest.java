@@ -23,16 +23,16 @@ import static org.testng.Assert.assertTrue;
     @Test
     public void changeUserPasswordTest() throws IOException, MessagingException {
       Users users = app.db().users();
-      UserData selectedContact = users.iterator().next();
+      UserData selectedUser = users.iterator().next();
       app.goTo().login();
       app.goTo().openManageUsers();
-      app.goTo().choiceUser(selectedContact);
+      app.goTo().choiceUser(selectedUser);
       app.goTo().resetPassword();
       List<MailMessage> mailMessages = app.mail().witeForMail(1, 10000);
-      String resetLink = findResetLink(mailMessages, selectedContact.getEmail());
+      String resetLink = findResetLink(mailMessages, selectedUser.getEmail());
       String newpassword = "newpassword";
       app.registration().finish(resetLink, newpassword);
-      assertTrue(app.newSession().login(selectedContact.getUsername(),newpassword));
+      assertTrue(app.newSession().login(selectedUser.getUsername(),newpassword));
 
     }
     private String findResetLink(List<MailMessage> messages, String email) {

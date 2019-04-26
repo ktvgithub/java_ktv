@@ -42,9 +42,6 @@ public class ApplicationManager<string> {
     }
   }
 
-
-
-
   public NavigatorHelper goTo() {
     return navigatorHelper;
   }
