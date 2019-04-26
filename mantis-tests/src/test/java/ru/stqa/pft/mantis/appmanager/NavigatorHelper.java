@@ -1,16 +1,11 @@
 package ru.stqa.pft.mantis.appmanager;
 
 import org.openqa.selenium.By;
+import ru.stqa.pft.mantis.model.UserData;
 
-public class NavigatorHelper {
-  	import mantis.model.UserData;
-	import org.openqa.selenium.By;
+  public class NavigatorHelper extends HelperBase{
 
-  public class NavigationHelper extends HelperBase{
-
-
-
-    public NavigationHelper(ApplicationManager app){
+    public NavigatorHelper(ApplicationManager app){
       super(app);
     }
 
@@ -38,4 +33,4 @@ public class NavigatorHelper {
 
 
 
-}
+
