@@ -1,7 +1,6 @@
 package ru.stqa.pft.mantis.model;
 
 
-import com.google.gson.annotations.Expose;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
@@ -12,7 +11,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "mantis_user_table")
 
-public class UserData {
+public class UserData<smallint> {
 
   @Id
   @Column
@@ -21,8 +20,7 @@ public class UserData {
   @Column
   private String username;
 
-  @Expose
-  @Column
+ @Column
   private String email;
 
   @Column
@@ -48,7 +46,7 @@ public class UserData {
     return password;
   }
 
-  public int getAccess_level() {
+  public short getAccess_level() {
     return access_level;
   }
 
