@@ -25,7 +25,6 @@ public class DbHelper  {
   }
 
   public Users users() {
-    System.out.println("зашли в dbhelper");
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<UserData> result = session.createQuery("from UserData where access_level != '90'").list();

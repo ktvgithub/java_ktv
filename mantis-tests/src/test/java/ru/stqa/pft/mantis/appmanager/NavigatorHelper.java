@@ -10,9 +10,11 @@ import ru.stqa.pft.mantis.model.UserData;
     }
 
     public void login(){
-      wd.get(app.getProperty("webBaseUrl"));
-      type(By.name("username"),app.getProperty("userName"));
-      type(By.name("password"),app.getProperty("password"));
+      wd.get(app.getProperty("webBaseUrl" + "http://localhost/mantisbt-2.20.0/login_page.php"));
+      type(By.name("username"),app.getProperty("administrator"));
+      click(By.xpath("//*[@type = 'submit']"));
+      wd.get(app.getProperty("webBaseUrl" + "http://localhost/mantisbt-2.20.0/login_password_page.php"));
+      type(By.name("password"),app.getProperty("root"));
       click(By.xpath("//*[@type = 'submit']"));
     }
     public void openManageUsers(){

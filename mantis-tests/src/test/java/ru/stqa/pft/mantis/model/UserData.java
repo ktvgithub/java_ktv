@@ -1,8 +1,6 @@
 package ru.stqa.pft.mantis.model;
 
 
-import org.hibernate.annotations.Type;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -26,9 +24,12 @@ public class UserData<smallint> {
   @Column
   private String password;
 
-  @Column
-  @Type(type = "short")
-  private short access_level;
+ // @Column
+ // @Type(type = "short")
+ // private short access_level;
+
+  @Column(columnDefinition = "SMALLINT")
+  private String access_level;
 
   public int getId() {
     return id;
@@ -46,7 +47,7 @@ public class UserData<smallint> {
     return password;
   }
 
-  public short getAccess_level() {
+  public String getAccess_level() {
     return access_level;
   }
 
@@ -70,7 +71,7 @@ public class UserData<smallint> {
     return this;
   }
 
-  public UserData withAccess_level(short access_level) {
+  public UserData withAccess_level(String access_level) {
     this.access_level = access_level;
     return this;
   }
