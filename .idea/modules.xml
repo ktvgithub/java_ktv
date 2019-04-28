@@ -8,6 +8,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/soap-sample.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sundbox.iml" filepath="$PROJECT_DIR$/.idea/modules/sundbox.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sundbox_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sundbox_main.iml" group="sundbox" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sundbox_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sundbox_test.iml" group="sundbox" />
