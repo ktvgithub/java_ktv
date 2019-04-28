@@ -11,23 +11,28 @@ import ru.stqa.pft.mantis.model.UserData;
 
     public void login(){
       wd.get(app.getProperty("web.baseUrl"));
-      type(By.name("username"),app.getProperty("administrator"));
+      type(By.name("username"),app.getProperty("web.loginAdmin"));
       click(By.xpath("//*[@type = 'submit']"));
-      wd.get(app.getProperty("web.baseUrl" + "/login_password_page.php"));
-      type(By.name("password"),app.getProperty("root"));
+      type(By.name("password"),app.getProperty("web.loginPassword"));
       click(By.xpath("//*[@type = 'submit']"));
+
+
+
     }
-    public void openManageUsers(){
-      click(By.cssSelector("a[href='/mantisbt-1.2.19/manage_overview_page.php']"));
-      click(By.cssSelector("a[href='/mantisbt-1.2.19/manage_user_page.php']"));
+    public void openManageUsers() {
+      wd.get(app.getProperty("web.baseUrl") +"/account_page.php");
+      wd.findElement(By.cssSelector("i.menu-icon.fa.fa-gears")).click();
+      wd.get(app.getProperty("web.baseUrl") +"/manage_overview_page.php");
+      wd.findElement(By.xpath("//a[contains(text(),'Manage Users')]")).click();
     }
 
     public void choiceUser(UserData account) {
+      wd.get(app.getProperty("web.baseUrl") +"/manage_user_page.php");
+      wd.findElement(By.xpath("//a[contains(@href, 'manage_user_edit_page.php?user_id="+ account.getId()+"')]")).click();
+     }
 
-      click(By.cssSelector("a[href='manage_user_edit_page.php?user_id="+ account.getId()+"']"));
-    }
-    public void resetPassword() {
-      click(By.xpath("//*[@value= 'Reset Password']"));
+      public void resetPassword() {
+      wd.findElement(By.xpath("//input[@value='Reset Password']")).click();
 
     }
   }

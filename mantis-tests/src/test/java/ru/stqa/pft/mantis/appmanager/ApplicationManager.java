@@ -46,7 +46,6 @@ public class ApplicationManager<string> {
         }
       }
    }
-  //  navigatorHelper = new NavigatorHelper((ApplicationManager) wd);
     wd.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
     navigatorHelper = new NavigatorHelper(this);
