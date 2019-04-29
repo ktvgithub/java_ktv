@@ -22,6 +22,7 @@ public class ApplicationManager<string> {
   private MailHelper mailHelper;
   private NavigatorHelper navigatorHelper;
   private DbHelper dbHelper;
+  private SoapHelper soapHelper;
 
 
   public ApplicationManager(String browser) {
@@ -92,6 +93,16 @@ public class ApplicationManager<string> {
     }
     return mailHelper;
   }
+
+  public SoapHelper soap() {
+    if (soapHelper == null)  {
+      soapHelper = new SoapHelper(this);
+    }
+    return soapHelper;
+  }
+
+
+
 
   public WebDriver getDriver() {
     if (wd == null) {
