@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.BrowserType;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -94,7 +95,7 @@ public class ApplicationManager<string> {
     return mailHelper;
   }
 
-  public SoapHelper soap() {
+  public SoapHelper soap() throws MalformedURLException {
     if (soapHelper == null)  {
       soapHelper = new SoapHelper(this);
     }
