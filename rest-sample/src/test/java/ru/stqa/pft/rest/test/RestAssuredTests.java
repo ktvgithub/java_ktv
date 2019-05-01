@@ -1,4 +1,4 @@
-package ru.stqa.pft.rest;
+package ru.stqa.pft.rest.test;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -8,6 +8,7 @@ import com.jayway.restassured.RestAssured;
 import org.apache.http.client.fluent.Executor;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import ru.stqa.pft.rest.model.Issue;
 
 import java.io.IOException;
 import java.util.Set;
