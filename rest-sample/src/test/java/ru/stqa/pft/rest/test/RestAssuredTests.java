@@ -48,7 +48,7 @@ public class RestAssuredTests {
 
   private int createIssue(Issue newIssue) throws IOException {
      String  json = RestAssured.given().parameter("subject", newIssue.getSubject())
-          .parameter("discription", newIssue.getDescription())
+          .parameter("description", newIssue.getDescription())
           .post("http://bugify.stqa.ru/api/issues.json").asString();
     JsonElement parsed = new JsonParser().parse(json);
     return parsed.getAsJsonObject().get("issue_id").getAsInt();
