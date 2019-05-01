@@ -16,7 +16,7 @@ public class CreateIssueNotFixed extends TestBase{
 
   @Test
   public void testCreateIssueNotFixed() throws MalformedURLException, ServiceException, RemoteException, javax.xml.rpc.ServiceException {
-    skipIfNotFixed(4);
+    skipIfNotFixed(9);
     Set<Project> projects = app.soap().getProjects();
     Issue issue = new Issue().withSummary("Test issue")
             .withDescription("Test issue description").withProject(projects.iterator().next());
