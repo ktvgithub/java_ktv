@@ -5,6 +5,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-web-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-web-tests.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-sample.iml" filepath="$PROJECT_DIR$/.idea/modules/github-sample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-sample.main.iml" filepath="$PROJECT_DIR$/.idea/modules/github-sample.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/github-sample.test.iml" filepath="$PROJECT_DIR$/.idea/modules/github-sample.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.main.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mantis-tests.test.iml" filepath="$PROJECT_DIR$/.idea/modules/mantis-tests.test.iml" />
