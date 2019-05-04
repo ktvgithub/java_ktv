@@ -1,4 +1,4 @@
-package ru.stqa.pft.sandbox;
+package ru.stqa.pft.sundbox;
 
 public class Equation {
   private double a;

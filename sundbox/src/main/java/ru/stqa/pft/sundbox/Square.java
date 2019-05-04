@@ -1,4 +1,4 @@
-package ru.stqa.pft.sandbox;
+package ru.stqa.pft.sundbox;
 
 public class Square {
   public double l;

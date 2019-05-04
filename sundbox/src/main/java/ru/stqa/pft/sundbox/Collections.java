@@ -1,4 +1,4 @@
-package ru.stqa.pft.sandbox;
+package ru.stqa.pft.sundbox;
 
 import java.util.Arrays;
 import java.util.List;
